@@ -38,7 +38,10 @@ cron.schedule('* * * * *', async () => {
     console.error('❌ Cron job error:', err);
   }
 });
-
+// Define the root route
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
 // Create Appointment
 app.post('/appointment', async (req, res) => {
   console.log('Received form data:', req.body);
