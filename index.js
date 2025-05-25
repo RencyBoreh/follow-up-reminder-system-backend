@@ -6,7 +6,10 @@ const { sendReminder } = require('./utils/reminder');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:'https://follow-upreminder-system-frontend.onrender.com',
+  credentials:true
+}));
 app.use(express.json());
 
 // Scheduled Task - every hour: send reminders for appointments within next 24 hours
