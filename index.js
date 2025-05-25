@@ -73,5 +73,5 @@ app.get('/appointments', async (req, res) => {
   if (error) return res.status(400).json({ error: error.message });
   res.json(data);
 });
-
-app.listen(5000, () => console.log('Server is running at http://localhost:5000'));
+const PORT=5000;
+app.listen(PORT,'0.0.0.0', () => console.log(`Server is running at http://localhost:${PORT}`));
