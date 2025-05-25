@@ -74,10 +74,11 @@ app.post('/appointment', async (req, res) => {
 });
 
 // Get Appointments
-app.get('/appointments', async (req, res) => {
-  const { data, error } = await supabase.from('appointments').select('*');
-  if (error) return res.status(400).json({ error: error.message });
-  res.json(data);
+app.get("/", async (req, res) => {
+  const { data, error } = await supabase.from("appointments").select("*");
+  if (error) return res.status(500).json({ error: error.message });
+  res.json(data); // ✅ Ensure `data` is an array
 });
+
 const PORT=5000;
 app.listen(PORT,'0.0.0.0', () => console.log(`Server is running at http://localhost:${PORT}`));
